@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../page-objects/LoginPage';
-import { InventoryPage } from '../page-objects/InventoryPage';
 
 test.describe('Multi-User / Browser Context Scenarios', () => {
 

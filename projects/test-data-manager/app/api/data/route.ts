@@ -7,7 +7,7 @@ export async function GET() {
     try {
         const data = await TestData.find({}).sort({ createdAt: -1 });
         return NextResponse.json({ success: true, data });
-    } catch (error) {
+    } catch {
         return NextResponse.json({ success: false }, { status: 400 });
     }
 }

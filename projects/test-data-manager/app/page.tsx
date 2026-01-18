@@ -1,9 +1,10 @@
 "use client"
 
 import { useState, useEffect } from 'react';
-import { Database, Plus, Copy, RotateCcw, Check } from 'lucide-react';
+import { Database, Plus, Copy, RotateCcw } from 'lucide-react';
 
 export default function Home() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [data, setData] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [bulkCount, setBulkCount] = useState(10);
@@ -22,7 +23,7 @@ export default function Home() {
                 body: JSON.stringify({ count: bulkCount })
             });
             fetchData();
-        } catch (error) {
+        } catch {
             alert('Bulk generation failed');
         }
     };
@@ -59,7 +60,7 @@ export default function Home() {
 
             setFormData({ ...formData, scenario: '', tags: '' });
             fetchData();
-        } catch (err) {
+        } catch {
             alert('Invalid JSON Payload');
         }
     };

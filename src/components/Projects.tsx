@@ -19,7 +19,7 @@ const projects = [
         ],
         metrics: "Reduced regression time by 60%",
         icon: PlayCircle,
-        sourceUrl: "https://github.com/tansolo-qa/portfolio-e2e-automation"
+        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/e2e-automation"
     },
     {
         id: "api-contract-testing",
@@ -35,7 +35,7 @@ const projects = [
         ],
         metrics: "Zero API breaking changes",
         icon: ShieldCheck,
-        sourceUrl: "https://github.com/tansolo-qa/portfolio-api-contract-testing"
+        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/api-contract-testing"
     },
     {
         id: "performance-load-testing",
@@ -51,7 +51,7 @@ const projects = [
         ],
         metrics: "Optimized throughput by 40%",
         icon: BarChart3,
-        sourceUrl: "https://github.com/tansolo-qa/portfolio-performance-load-testing"
+        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/performance-load-testing"
     },
     {
         id: "test-data-manager",
@@ -67,7 +67,7 @@ const projects = [
         ],
         metrics: "Boosted team efficiency by 3x",
         icon: Database,
-        sourceUrl: "https://github.com/tansolo-qa/portfolio-test-data-manager"
+        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/test-data-manager"
     }
 ]
 
@@ -77,7 +77,7 @@ export function Projects() {
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured <span className="text-secondary">Projects</span></h2>
                 <p className="text-muted-foreground max-w-[600px] mx-auto">
-                    Demonstrating "Full Stack" capabilities: from UI automation and backend contracts to infrastructure performance and custom tooling.
+                    Demonstrating &quot;Full Stack&quot; capabilities: from UI automation and backend contracts to infrastructure performance and custom tooling.
                 </p>
             </div>
 
@@ -102,7 +102,7 @@ export function Projects() {
                                 {/* Goal Section */}
                                 <div className="mb-4 flex items-start gap-2 text-sm text-primary/90 bg-primary/5 p-3 rounded-lg border border-primary/10">
                                     <Target className="w-4 h-4 shrink-0 mt-0.5" />
-                                    <span className="font-medium italic">"{project.goal}"</span>
+                                    <span className="font-medium italic">&quot;{project.goal}&quot;</span>
                                 </div>
 
                                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">

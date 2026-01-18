@@ -35,7 +35,7 @@ export async function POST(request: Request) {
             { success: true, message: `Successfully generated ${safeCount} records` },
             { status: 201 }
         );
-    } catch (error) {
+    } catch {
         return NextResponse.json(
             { success: false, error: 'Failed to generate data' },
             { status: 500 }

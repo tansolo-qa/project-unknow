@@ -13,7 +13,7 @@ export const options = {
     },
 };
 
-export default function () {
+export default function loadTest() {
     const res = http.get('https://test.k6.io');
 
     check(res, {

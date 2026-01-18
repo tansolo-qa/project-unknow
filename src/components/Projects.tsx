@@ -6,7 +6,7 @@ import { ExternalLink, Github, PlayCircle, BarChart3, ShieldCheck, Database, Tar
 
 const projects = [
     {
-        id: "project-a",
+        id: "e2e-automation",
         category: "The Core",
         title: "E2E Automation Framework",
         goal: "Build a complex, Enterprise-grade automation framework for E-commerce/Banking to master advanced testing scenarios.",
@@ -21,7 +21,7 @@ const projects = [
         icon: PlayCircle
     },
     {
-        id: "project-b",
+        id: "api-contract-testing",
         category: "The Middleware",
         title: "API & Contract Testing",
         goal: "Demonstrate professional backend testing skills, including Contract Testing to ensure microservice compatibility.",
@@ -36,7 +36,7 @@ const projects = [
         icon: ShieldCheck
     },
     {
-        id: "project-c",
+        id: "performance-load-testing",
         category: "The Specialist",
         title: "High-Scale Load Testing",
         goal: "Showcase scalability awareness by simulating high concurrency (1k+ users) and identifying system bottlenecks.",
@@ -51,7 +51,7 @@ const projects = [
         icon: BarChart3
     },
     {
-        id: "project-d",
+        id: "test-data-manager",
         category: "Full Stack Proof",
         title: "Test Data Management App",
         goal: "Prove 'Full Stack' capabilities by building a custom tool from scratch, demonstrating deep system understanding beyond testing.",

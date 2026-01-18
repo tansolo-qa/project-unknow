@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./projects/project-a
+        working-directory: projects/e2e-automation
 
     steps:
     - uses: actions/checkout@v4
@@ -25,6 +25,7 @@ jobs:
         node-version: lts/*
         
     - name: Install dependencies
+      working-directory: projects/e2e-automation
       run: npm ci
       
     - name: Install Playwright Browsers

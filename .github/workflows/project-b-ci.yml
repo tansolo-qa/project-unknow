@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./projects/project-b
+        working-directory: projects/api-contract-testing
 
     steps:
     - uses: actions/checkout@v4
@@ -24,9 +24,11 @@ jobs:
         node-version: lts/*
         
     - name: Install dependencies
+      working-directory: projects/api-contract-testing
       run: npm ci
 
-    - name: Run API Tests
+    - name: Run Tests
+      working-directory: projects/api-contract-testing
       run: npm test
 
     - name: Upload Pact Contracts

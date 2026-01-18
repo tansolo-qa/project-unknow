@@ -53,5 +53,9 @@ export const DEMO_SCENARIOS = {
             "     vus............................: 1       min=1        max=50",
             "     vus_max........................: 50      min=50       max=50"
         ]
+    },
+    api: {
+        command: "npm test",
+        logs: [] // Real-time means we don't need pre-filled logs
     }
 }

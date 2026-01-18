@@ -166,7 +166,7 @@ export function Projects() {
                                     )}
 
                                     {/* Test Demo Button */}
-                                    {(project.id === 'e2e-automation' || project.id === 'performance-load-testing') && (
+                                    {(project.id === 'e2e-automation' || project.id === 'performance-load-testing' || project.id === 'api-contract-testing') && (
                                         <Button
                                             size="sm"
                                             variant="secondary"
@@ -188,8 +188,8 @@ export function Projects() {
                 isOpen={!!activeDemo}
                 onClose={() => setActiveDemo(null)}
                 projectTitle={activeDemo ? projects.find(p => p.id === activeDemo)?.title || 'Terminal' : ''}
-                command={activeDemo === 'e2e-automation' ? DEMO_SCENARIOS.e2e.command : DEMO_SCENARIOS.load.command}
-                logs={activeDemo === 'e2e-automation' ? DEMO_SCENARIOS.e2e.logs : activeDemo === 'performance-load-testing' ? DEMO_SCENARIOS.load.logs : []}
+                command={activeDemo === 'e2e-automation' ? DEMO_SCENARIOS.e2e.command : activeDemo === 'performance-load-testing' ? DEMO_SCENARIOS.load.command : DEMO_SCENARIOS.api.command}
+                runType={activeDemo === 'e2e-automation' ? 'e2e' : activeDemo === 'performance-load-testing' ? 'load' : activeDemo === 'api-contract-testing' ? 'api' : null}
             />
         </Section>
     )

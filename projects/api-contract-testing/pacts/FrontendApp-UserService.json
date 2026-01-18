@@ -44,6 +44,21 @@
         },
         "status": 200
       }
+    },
+    {
+      "description": "a request for non-existent user 9999",
+      "providerStates": [
+        {
+          "name": "a user with ID 9999 does not exist"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/users/9999"
+      },
+      "response": {
+        "status": 404
+      }
     }
   ],
   "metadata": {

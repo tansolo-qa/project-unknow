@@ -29,6 +29,17 @@ describe('User Service Contract', () => {
                 },
             });
 
+        provider
+            .given('a user with ID 9999 does not exist')
+            .uponReceiving('a request for non-existent user 9999')
+            .withRequest({
+                method: 'GET',
+                path: '/users/9999',
+            })
+            .willRespondWith({
+                status: 404
+            });
+
         return provider.executeTest(async (mockServer) => {
             // Act: Consumer makes a request to the Mock Provider
             const response = await axios.get(`${mockServer.url}/users/1`);
@@ -39,6 +50,13 @@ describe('User Service Contract', () => {
                 id: 1,
                 name: 'Leanne Graham'
             }));
+
+            // Act: Request non-existent user
+            try {
+                await axios.get(`${mockServer.url}/users/9999`);
+            } catch (error: any) {
+                expect(error.response.status).toEqual(404);
+            }
         });
     });
 });

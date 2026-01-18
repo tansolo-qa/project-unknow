@@ -20,13 +20,23 @@ describe('Functional API Tests (JSONPlaceholder)', () => {
             required: ['id', 'name', 'username', 'email']
         };
 
+        const start = Date.now();
         const response = await request(BASE_URL).get('/users');
+        const duration = Date.now() - start;
+
         expect(response.status).toBe(200);
+        expect(response.headers['content-type']).toMatch(/application\/json/); // Best Practice: Verify Content-Type
+        expect(duration).toBeLessThan(2000); // Best Practice: Performance assertion
+
         expect(response.body).toBeInstanceOf(Array);
         expect(response.body.length).toBeGreaterThan(0);
-
-        // Check schema for the first user item
         expect(response.body[0]).toMatchSchema(userSchema);
+    });
+
+    it('GET /users/9999 - Should return 404 for non-existent user', async () => {
+        const response = await request(BASE_URL).get('/users/9999');
+        expect(response.status).toBe(404);
+        // Best Practice: Ensure error body structure if applicable, though JSONPlaceholder represents it simply
     });
 
     it('POST /users - Should create a new user', async () => {

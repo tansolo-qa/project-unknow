@@ -6,11 +6,26 @@ import { Database, Plus, Copy, RotateCcw, Check } from 'lucide-react';
 export default function Home() {
     const [data, setData] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+    const [bulkCount, setBulkCount] = useState(10);
     const [formData, setFormData] = useState({
         scenario: '',
         tags: '',
         payload: '{\n  "key": "value"\n}'
     });
+
+    const handleBulkGenerate = async () => {
+        setLoading(true);
+        try {
+            await fetch('/api/data/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ count: bulkCount })
+            });
+            fetchData();
+        } catch (error) {
+            alert('Bulk generation failed');
+        }
+    };
 
     const fetchData = async () => {
         setLoading(true);
@@ -70,10 +85,36 @@ export default function Home() {
 
                     {/* Form Section */}
                     <div className="lg:col-span-1">
+                        <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm mb-6">
+                            <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                                <Database className="w-5 h-5 text-indigo-400" />
+                                Bulk Generate
+                            </h2>
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-400 mb-1">Count</label>
+                                    <input
+                                        type="number"
+                                        min="1"
+                                        max="1000"
+                                        className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
+                                        value={bulkCount}
+                                        onChange={e => setBulkCount(parseInt(e.target.value))}
+                                    />
+                                </div>
+                                <button
+                                    onClick={handleBulkGenerate}
+                                    className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium py-2 rounded-xl transition shadow-lg shadow-emerald-900/20 active:scale-95 flex items-center justify-center gap-2"
+                                >
+                                    Generate via Faker.js
+                                </button>
+                            </div>
+                        </div>
+
                         <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm">
                             <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
                                 <Plus className="w-5 h-5 text-emerald-400" />
-                                Generate Data
+                                Manual Creation
                             </h2>
 
                             <form onSubmit={handleSubmit} className="space-y-4">

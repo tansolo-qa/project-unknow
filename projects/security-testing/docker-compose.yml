@@ -1,0 +1,14 @@
+services:
+  zap-baseline:
+    image: zaproxy/zap-stable
+    # command: zap-baseline.py -t http://host.docker.internal:3001 -r zap-report.html
+    # We use a custom command to ensure the report directory is writable and mapped correctly
+    command: >
+      bash -c "zap-baseline.py -t http://host.docker.internal:3001 -r zap_report.html -I && \
+      cp /zap/wrk/zap_report.html /reports/zap_report.html"
+    volumes:
+      - ./reports:/reports:rw
+      - ./reports:/zap/wrk:rw
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    user: root # Needed to write reports to mapped volume on some systems

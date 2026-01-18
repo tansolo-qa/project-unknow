@@ -2,14 +2,15 @@
 
 import { Section } from "./ui/Section"
 import { Button } from "./ui/Button"
-import { ExternalLink, Github, PlayCircle, BarChart3, ShieldCheck, Database } from "lucide-react"
+import { ExternalLink, Github, PlayCircle, BarChart3, ShieldCheck, Database, Target } from "lucide-react"
 
 const projects = [
     {
         id: "project-a",
         category: "The Core",
         title: "E2E Automation Framework",
-        description: "Enterprise-grade testing framework for E-commerce/Banking systems. Implements Page Object Model (POM) for maintainability and Data-Driven Testing from external sources.",
+        goal: "Build a complex, Enterprise-grade automation framework for E-commerce/Banking to master advanced testing scenarios.",
+        description: "A robust automation framework built with Playwright and TypeScript implementing Page Object Model and Data-Driven Testing.",
         tech: ["Playwright", "TypeScript", "GitHub Actions", "Allure Report"],
         features: [
             "Page Object Model Architecture",
@@ -23,7 +24,8 @@ const projects = [
         id: "project-b",
         category: "The Middleware",
         title: "API & Contract Testing",
-        description: "Comprehensive backend testing suite verifying business logic and microservices contracts. Ensures frontend-backend compatibility before deployment.",
+        goal: "Demonstrate professional backend testing skills, including Contract Testing to ensure microservice compatibility.",
+        description: "Comprehensive backend testing suite verifying business logic and contracts. Ensures frontend-backend compatibility before deployment.",
         tech: ["Supertest", "Pact.io", "Jest", "Docker"],
         features: [
             "Consumer-Driven Contract Testing",
@@ -37,7 +39,8 @@ const projects = [
         id: "project-c",
         category: "The Specialist",
         title: "High-Scale Load Testing",
-        description: "Performance analysis platform simulating 1,000+ concurrent users to identify system bottlenecks under heavy load.",
+        goal: "Showcase scalability awareness by simulating high concurrency (1k+ users) and identifying system bottlenecks.",
+        description: "Performance analysis platform simulating 1,000+ concurrent users with real-time monitoring to ensure system stability.",
         tech: ["k6", "Grafana", "InfluxDB", "Go"],
         features: [
             "Real-time Performance Dashboard",
@@ -51,6 +54,7 @@ const projects = [
         id: "project-d",
         category: "Full Stack Proof",
         title: "Test Data Management App",
+        goal: "Prove 'Full Stack' capabilities by building a custom tool from scratch, demonstrating deep system understanding beyond testing.",
         description: "Custom internal tool built to generate and manage dynamic test data, solving the 'stale data' problem in staging environments.",
         tech: ["Next.js", "TailwindCSS", "MongoDB", "Node.js"],
         features: [
@@ -88,7 +92,15 @@ export function Projects() {
                                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-white/10 to-transparent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                                     <Icon className="w-6 h-6 text-foreground" />
                                 </div>
+
                                 <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+
+                                {/* Goal Section */}
+                                <div className="mb-4 flex items-start gap-2 text-sm text-primary/90 bg-primary/5 p-3 rounded-lg border border-primary/10">
+                                    <Target className="w-4 h-4 shrink-0 mt-0.5" />
+                                    <span className="font-medium italic">"{project.goal}"</span>
+                                </div>
+
                                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                                     {project.description}
                                 </p>
@@ -126,7 +138,7 @@ export function Projects() {
                                         <Github className="w-4 h-4" /> Source
                                     </Button>
                                     <Button size="sm" variant="ghost" className="w-full gap-2 hover:bg-primary/10 hover:text-primary">
-                                        <ExternalLink className="w-4 h-4" /> Demo / VDO
+                                        <ExternalLink className="w-4 h-4" /> Demo
                                     </Button>
                                 </div>
                             </div>

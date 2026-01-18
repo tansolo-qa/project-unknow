@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Full Stack QA Portfolio 🚀
 
-## Getting Started
+Welcome to my comprehensive **QA Automation & Full Stack Development Portfolio**. This project is a monorepo that showcases expertise across the entire testing pyramid and development lifecycle.
 
-First, run the development server:
+## 🌟 Portfolio Website
+The landing page you see here is built with **Next.js**, **TypeScript**, and **Tailwind CSS**. It serves as a centralized hub to demonstrate my technical arsenal and featured projects.
 
+---
+
+## 🏗️ Core Projects
+
+This repository contains four specialized projects, each targeting a critical area of Quality Engineering:
+
+### 1. [E2E Automation Framework](file:///e:/POC/project-unknow/projects/e2e-automation)
+*   **Goal**: Enterprise-grade E2E testing.
+*   **Stack**: Playwright, TypeScript, Allure Reports.
+*   **Key Features**: Page Object Model (POM), Data-Driven Testing, CI/CD Integration via GitHub Actions.
+
+### 2. [API & Contract Testing](file:///e:/POC/project-unknow/projects/api-contract-testing)
+*   **Goal**: Robust backend and middleware verification.
+*   **Stack**: Jest, Supertest, Pact.io.
+*   **Key Features**: Consumer-Driven Contract Testing, Security/Auth validation, Dockerized test environments.
+
+### 3. [Performance & Load Testing](file:///e:/POC/project-unknow/projects/performance-load-testing)
+*   **Goal**: Performance bench-marking and bottleneck analysis.
+*   **Stack**: k6, InfluxDB, Grafana.
+*   **Key Features**: 1k+ VU simulation, real-time monitoring dashboard, Docker Compose setup.
+
+### 4. [Test Data Manager (Full Stack App)](file:///e:/POC/project-unknow/projects/test-data-manager)
+*   **Goal**: Solving data dependency issues with custom tooling.
+*   **Stack**: Next.js (Full Stack), MongoDB, Tailwind.
+*   **Key Features**: CRUD interface for test data, RESTful API, modern responsive dashboard.
+
+---
+
+## 🛠️ Getting Started
+
+### 1. Run the Portfolio Website
 ```bash
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run Portfolio Self-Tests (E2E)
+We use a **"Testing the Tester"** approach—verified via root-level Playwright tests.
+```bash
+# Install Playwright browsers (first time only)
+npx playwright install --with-deps
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Run E2E tests
+npm run test:e2e
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📁 Repository Structure
+```text
+.
+├── projects/
+│   ├── e2e-automation/          # Project A
+│   ├── api-contract-testing/    # Project B
+│   ├── performance-load-testing/ # Project C
+│   └── test-data-manager/       # Project D
+├── tests/
+│   └── portfolio.spec.ts        # E2E tests for the landing page
+├── src/                         # Portfolio Website Source
+├── .github/workflows/           # CI/CD Workflows for all projects
+└── playwright.config.ts         # Root Playwright configuration
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛡️ Technical Arsenal
+*   **Testing**: Playwright, Jest, Supertest, Pact, k6.
+*   **Frontend**: Next.js, React, Tailwind CSS, Framer Motion.
+*   **Backend & DB**: Node.js, Next API Routes, MongoDB.
+*   **DevOps**: Docker, GitHub Actions, Allure.

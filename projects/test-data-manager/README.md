@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛠️ Test Data Manager (Project D)
 
-## Getting Started
+A centralized, internal tool designed to generate, manage, and serve dynamic test data for QA automation pipelines. It solves the common problem of "stale data" in staging environments by providing an on-demand API for creating fresh, realistic datasets.
 
-First, run the development server:
+## 🚀 Key Features
 
+- **Dynamic Data Generation**: Leveraging [Faker.js](https://fakerjs.dev/) to create realistic user profiles, product catalogs, and more.
+- **Template Support**:
+  - **👤 User Profiles**: Names, emails, job titles, avatars.
+  - **📦 E-commerce Products**: Product names, prices, SKUs, categories.
+- **RESTful API**: Simple endpoints to generate data programmatically from your test scripts (Playwright, Cypress, k6).
+- **Live Persistence**: Data is stored in MongoDB, allowing for persistent test scenarios across sessions.
+- **Modern UI**: Built with Next.js & TailwindCSS for easy manual data management.
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Database**: MongoDB (via Mongoose)
+- **Styling**: TailwindCSS + Lucide Icons
+- **Data Engine**: Faker.js v9
+
+## 🔌 API Reference
+
+### 1. Generate Bulk Data
+Create multiple records instantly using a specific template.
+
+- **Endpoint**: `POST /api/data/generate`
+- **Headers**: `Content-Type: application/json`
+- **Body Parameters**:
+  - `count` (number, optional): Number of records to generate (default: 10).
+  - `type` (string, optional): Template type. Options: `'user'`, `'product'` (default: `'user'`).
+
+**Example Request (Generate 5 Products):**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+curl -X POST http://localhost:3001/api/data/generate \
+  -H "Content-Type: application/json" \
+  -d '{"count": 5, "type": "product"}'
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Example Response:**
+```json
+{
+  "success": true,
+  "message": "Successfully generated 5 records"
+}
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. Fetch Latest Data
+Retrieve the most recently generated data points.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Endpoint**: `GET /api/data`
+- **Response**: Array of created data objects.
 
-## Learn More
+## 🏃‍♂️ Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+### Standalone Mode
+Run only this project on port 3001:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cd projects/test-data-manager
+npm install
+npx next dev -p 3001
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Integrated Mode (Recommended)
+Run as part of the full portfolio suite (starts both main app and TDM):
 
-## Deploy on Vercel
+```bash
+# From the root directory
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Visit the dashboard at **[http://localhost:3001](http://localhost:3001)**.

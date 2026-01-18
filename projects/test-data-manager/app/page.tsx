@@ -132,8 +132,9 @@ export default function Home() {
 
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-400 mb-1">Scenario Name</label>
+                                    <label htmlFor="scenario" className="block text-sm font-medium text-slate-400 mb-1">Scenario Name</label>
                                     <input
+                                        id="scenario"
                                         type="text"
                                         required
                                         className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
@@ -144,8 +145,9 @@ export default function Home() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-400 mb-1">Tags (comma separated)</label>
+                                    <label htmlFor="tags" className="block text-sm font-medium text-slate-400 mb-1">Tags (comma separated)</label>
                                     <input
+                                        id="tags"
                                         type="text"
                                         className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
                                         placeholder="e.g. e2e, regression, manual"
@@ -155,8 +157,9 @@ export default function Home() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-400 mb-1">JSON Payload</label>
+                                    <label htmlFor="payload" className="block text-sm font-medium text-slate-400 mb-1">JSON Payload</label>
                                     <textarea
+                                        id="payload"
                                         required
                                         rows={8}
                                         className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 font-mono text-sm focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"

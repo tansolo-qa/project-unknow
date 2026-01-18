@@ -67,7 +67,8 @@ const projects = [
         ],
         metrics: "Boosted team efficiency by 3x",
         icon: Database,
-        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/test-data-manager"
+        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/test-data-manager",
+        demoUrl: "http://localhost:3001"
     }
 ]
 
@@ -83,7 +84,8 @@ export function Projects() {
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                 {projects.map((project, idx) => {
-                    const Icon = project.icon
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    const Icon = project.icon as any
                     return (
                         <div key={idx} className="group relative flex flex-col rounded-3xl border border-white/10 bg-black/40 overflow-hidden hover:border-primary/50 transition-all duration-300">
 
@@ -146,6 +148,17 @@ export function Projects() {
                                     >
                                         <Github className="w-4 h-4" /> Source
                                     </Button>
+
+                                    {/* @ts-expect-error - demoUrl is strictly optional and not typed in array yet */}
+                                    {project.demoUrl && (
+                                        <Button
+                                            size="sm"
+                                            className="w-full gap-2 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white border-none shadow-lg shadow-indigo-900/20"
+                                            onClick={() => window.open(project.demoUrl, '_blank')}
+                                        >
+                                            <PlayCircle className="w-4 h-4" /> Launch App
+                                        </Button>
+                                    )}
 
                                 </div>
                             </div>

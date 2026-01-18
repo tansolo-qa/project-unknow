@@ -149,7 +149,6 @@ export function Projects() {
                                         <Github className="w-4 h-4" /> Source
                                     </Button>
 
-                                    {/* @ts-expect-error - demoUrl is strictly optional and not typed in array yet */}
                                     {project.demoUrl && (
                                         <Button
                                             size="sm"

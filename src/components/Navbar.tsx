@@ -31,12 +31,12 @@ export function Navbar() {
 
                     <div className="flex items-center gap-2">
                         <Button variant="ghost" size="icon" asChild>
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/tansolo-qa" target="_blank" rel="noopener noreferrer">
                                 <Github className="w-4 h-4" />
                             </a>
                         </Button>
                         <Button variant="ghost" size="icon" asChild>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.linkedin.com/in/jirayu-kamai/" target="_blank" rel="noopener noreferrer">
                                 <Linkedin className="w-4 h-4" />
                             </a>
                         </Button>

@@ -25,7 +25,7 @@ export function Hero() {
                 </h1>
 
                 <p className="text-xl md:text-2xl text-muted-foreground max-w-[800px] mb-10 leading-relaxed">
-                    Bridging the gap between <span className="text-foreground font-medium">Development</span> and <span className="text-foreground font-medium">Quality Assurance</span> with modern automation frameworks and scalable testing strategies.
+                    "Bridging the gap between <span className="text-foreground font-medium">Development</span> and <span className="text-foreground font-medium">Quality Assurance</span> with Automation."
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-4">

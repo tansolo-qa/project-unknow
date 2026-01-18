@@ -2,29 +2,64 @@
 
 import { Section } from "./ui/Section"
 import { Button } from "./ui/Button"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github, PlayCircle, BarChart3, ShieldCheck, Database } from "lucide-react"
 
 const projects = [
     {
-        title: "E2E Commerce Framework",
-        description: "A robust automation framework built with Playwright and TypeScript implementing Page Object Model and Data-Driven Testing.",
-        tags: ["Playwright", "TypeScript", "Allure Report", "GitHub Actions"],
-        link: "#",
-        github: "#"
+        id: "project-a",
+        category: "The Core",
+        title: "E2E Automation Framework",
+        description: "Enterprise-grade testing framework for E-commerce/Banking systems. Implements Page Object Model (POM) for maintainability and Data-Driven Testing from external sources.",
+        tech: ["Playwright", "TypeScript", "GitHub Actions", "Allure Report"],
+        features: [
+            "Page Object Model Architecture",
+            "Auto-retry & Video on Failure",
+            "CI/CD Integration"
+        ],
+        metrics: "Reduced regression time by 60%",
+        icon: PlayCircle
     },
     {
-        title: "API Stress Test Suite",
-        description: "High-concurrency load testing suite using k6 simulating 50k+ virtual users with real-time Grafana dashboard monitoring.",
-        tags: ["k6", "Grafana", "InfluxDB", "Docker"],
-        link: "#",
-        github: "#"
+        id: "project-b",
+        category: "The Middleware",
+        title: "API & Contract Testing",
+        description: "Comprehensive backend testing suite verifying business logic and microservices contracts. Ensures frontend-backend compatibility before deployment.",
+        tech: ["Supertest", "Pact.io", "Jest", "Docker"],
+        features: [
+            "Consumer-Driven Contract Testing",
+            "Auth & Rate Limit Security Checks",
+            "Mock Server Integration"
+        ],
+        metrics: "Zero API breaking changes",
+        icon: ShieldCheck
     },
     {
-        title: "QA Management Dashboard",
-        description: "Full stack application for managing test data and aggregating reports from multiple sources into a single view.",
-        tags: ["Next.js", "MongoDB", "TailwindCSS", "Node.js"],
-        link: "#",
-        github: "#"
+        id: "project-c",
+        category: "The Specialist",
+        title: "High-Scale Load Testing",
+        description: "Performance analysis platform simulating 1,000+ concurrent users to identify system bottlenecks under heavy load.",
+        tech: ["k6", "Grafana", "InfluxDB", "Go"],
+        features: [
+            "Real-time Performance Dashboard",
+            "Spike & Soak Testing scenarios",
+            "Bottleneck Analysis Reports"
+        ],
+        metrics: "Optimized throughput by 40%",
+        icon: BarChart3
+    },
+    {
+        id: "project-d",
+        category: "Full Stack Proof",
+        title: "Test Data Management App",
+        description: "Custom internal tool built to generate and manage dynamic test data, solving the 'stale data' problem in staging environments.",
+        tech: ["Next.js", "TailwindCSS", "MongoDB", "Node.js"],
+        features: [
+            "CRUD for Test Scenarios",
+            "API Mocking Interface",
+            "Modern Responsive UI"
+        ],
+        metrics: "Boosted team efficiency by 3x",
+        icon: Database
     }
 ]
 
@@ -34,36 +69,70 @@ export function Projects() {
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured <span className="text-secondary">Projects</span></h2>
                 <p className="text-muted-foreground max-w-[600px] mx-auto">
-                    Showcasing my ability to build testing infrastructure and tools, not just run tests.
+                    Demonstrating "Full Stack" capabilities: from UI automation and backend contracts to infrastructure performance and custom tooling.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {projects.map((project, idx) => (
-                    <div key={idx} className="group relative rounded-2xl border border-white/10 bg-black/40 p-8 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
-                        <div className="mb-6">
-                            <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-                            <p className="text-muted-foreground text-sm leading-relaxed">{project.description}</p>
-                        </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                {projects.map((project, idx) => {
+                    const Icon = project.icon
+                    return (
+                        <div key={idx} className="group relative flex flex-col rounded-3xl border border-white/10 bg-black/40 overflow-hidden hover:border-primary/50 transition-all duration-300">
 
-                        <div className="flex flex-wrap gap-2 mb-8">
-                            {project.tags.map((tag, tIdx) => (
-                                <span key={tIdx} className="px-2 py-1 rounded-md bg-white/5 text-xs font-medium text-muted-foreground border border-white/5">
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
+                            {/* Category Badge */}
+                            <div className="absolute top-6 right-6 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-muted-foreground uppercase tracking-wider font-semibold group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                                {project.category}
+                            </div>
 
-                        <div className="flex items-center gap-4 mt-auto">
-                            <Button size="sm" variant="outline" className="gap-2">
-                                <Github className="w-4 h-4" /> Code
-                            </Button>
-                            <Button size="sm" variant="ghost" className="gap-2">
-                                <ExternalLink className="w-4 h-4" /> Demo
-                            </Button>
+                            <div className="p-8 pb-0">
+                                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-white/10 to-transparent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                                    <Icon className="w-6 h-6 text-foreground" />
+                                </div>
+                                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+                                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                                    {project.description}
+                                </p>
+
+                                {/* Key Features List */}
+                                <ul className="space-y-2 mb-6">
+                                    {project.features.map((feature, fIdx) => (
+                                        <li key={fIdx} className="flex items-center gap-2 text-xs font-medium text-zinc-400">
+                                            <div className="w-1 h-1 rounded-full bg-secondary" />
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Metrics Bar */}
+                            {project.metrics && (
+                                <div className="mx-8 mb-6 py-3 px-4 rounded-xl bg-white/5 border border-white/5 flex items-center gap-3">
+                                    <BarChart3 className="w-4 h-4 text-green-400" />
+                                    <span className="text-sm font-semibold text-green-400">{project.metrics}</span>
+                                </div>
+                            )}
+
+                            <div className="mt-auto border-t border-white/5 p-6 bg-white/[0.02]">
+                                <div className="flex flex-wrap gap-2 mb-6">
+                                    {project.tech.map((t, tIdx) => (
+                                        <span key={tIdx} className="px-2.5 py-1 rounded-md bg-black border border-white/10 text-xs text-zinc-400 group-hover:border-primary/20 transition-colors">
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div className="flex items-center gap-4">
+                                    <Button size="sm" variant="outline" className="w-full gap-2 border-white/10 hover:bg-white/5">
+                                        <Github className="w-4 h-4" /> Source
+                                    </Button>
+                                    <Button size="sm" variant="ghost" className="w-full gap-2 hover:bg-primary/10 hover:text-primary">
+                                        <ExternalLink className="w-4 h-4" /> Demo / VDO
+                                    </Button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    )
+                })}
             </div>
         </Section>
     )

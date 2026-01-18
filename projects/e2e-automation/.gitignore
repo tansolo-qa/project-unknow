@@ -8,3 +8,7 @@ node_modules
 .env
 .DS_Store
 stats.json
+
+# Visual regression outputs (keep baselines, ignore actual/diff)
+**/*-actual.png
+**/*-diff.png

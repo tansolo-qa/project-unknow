@@ -8,6 +8,7 @@ export default function Home() {
     const [data, setData] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [bulkCount, setBulkCount] = useState(10);
+    const [templateType, setTemplateType] = useState('user');
     const [formData, setFormData] = useState({
         scenario: '',
         tags: '',
@@ -20,7 +21,7 @@ export default function Home() {
             await fetch('/api/data/generate', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ count: bulkCount })
+                body: JSON.stringify({ count: bulkCount, type: templateType })
             });
             fetchData();
         } catch {
@@ -92,6 +93,17 @@ export default function Home() {
                                 Bulk Generate
                             </h2>
                             <div className="space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-400 mb-1">Template</label>
+                                    <select
+                                        className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition appearance-none"
+                                        value={templateType}
+                                        onChange={e => setTemplateType(e.target.value)}
+                                    >
+                                        <option value="user">👤 User Profiles</option>
+                                        <option value="product">📦 E-commerce Products</option>
+                                    </select>
+                                </div>
                                 <div>
                                     <label className="block text-sm font-medium text-slate-400 mb-1">Count</label>
                                     <input

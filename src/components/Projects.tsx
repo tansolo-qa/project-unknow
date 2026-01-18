@@ -19,7 +19,7 @@ const projects = [
         ],
         metrics: "Reduced regression time by 60%",
         icon: PlayCircle,
-        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/e2e-automation"
+        sourceUrl: "https://github.com/tansolo-qa/portfolio-e2e-automation"
     },
     {
         id: "api-contract-testing",
@@ -35,7 +35,7 @@ const projects = [
         ],
         metrics: "Zero API breaking changes",
         icon: ShieldCheck,
-        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/api-contract-testing"
+        sourceUrl: "https://github.com/tansolo-qa/portfolio-api-contract-testing"
     },
     {
         id: "performance-load-testing",
@@ -51,7 +51,7 @@ const projects = [
         ],
         metrics: "Optimized throughput by 40%",
         icon: BarChart3,
-        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/performance-load-testing"
+        sourceUrl: "https://github.com/tansolo-qa/portfolio-performance-load-testing"
     },
     {
         id: "test-data-manager",
@@ -67,7 +67,7 @@ const projects = [
         ],
         metrics: "Boosted team efficiency by 3x",
         icon: Database,
-        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/test-data-manager"
+        sourceUrl: "https://github.com/tansolo-qa/portfolio-test-data-manager"
     }
 ]
 

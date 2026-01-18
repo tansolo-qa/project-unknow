@@ -2,7 +2,7 @@
 
 import { Section } from "./ui/Section"
 import { Button } from "./ui/Button"
-import { ExternalLink, Github, PlayCircle, BarChart3, ShieldCheck, Database, Target } from "lucide-react"
+import { Github, PlayCircle, BarChart3, ShieldCheck, Database, Target } from "lucide-react"
 
 const projects = [
     {
@@ -146,9 +146,7 @@ export function Projects() {
                                     >
                                         <Github className="w-4 h-4" /> Source
                                     </Button>
-                                    <Button size="sm" variant="ghost" className="w-full gap-2 hover:bg-primary/10 hover:text-primary">
-                                        <ExternalLink className="w-4 h-4" /> Demo
-                                    </Button>
+
                                 </div>
                             </div>
                         </div>

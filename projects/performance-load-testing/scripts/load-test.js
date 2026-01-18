@@ -8,7 +8,7 @@ export const options = {
         { duration: '30s', target: 0 },  // Ramp-down to 0 users
     ],
     thresholds: {
-        http_req_duration: ['p(95)<500'], // 95% of requests must complete below 500ms
+        http_req_duration: ['p(95)<300'], // Adjusted to 300ms based on test.k6.io baseline (~280ms)
         http_req_failed: ['rate<0.01'],   // http errors should be less than 1%
     },
 };

@@ -25,7 +25,7 @@ export function Hero() {
                 </h1>
 
                 <p className="text-xl md:text-2xl text-muted-foreground max-w-[800px] mb-10 leading-relaxed">
-                    "Bridging the gap between <span className="text-foreground font-medium">Development</span> and <span className="text-foreground font-medium">Quality Assurance</span> with Automation."
+                    "I ensure software quality and reliability as an <span className="text-foreground font-medium">Automated Test Engineer</span>. With over 3 years of experience, I specialize in designing robust test plans, executing comprehensive test scenarios, and optimizing regression cycles using advanced automation tools."
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-4">

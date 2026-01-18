@@ -4,22 +4,32 @@ import { Section } from "./ui/Section"
 
 const experiences = [
     {
-        role: "Senior QA Engineer",
-        company: "Tech Solutions Inc.",
-        period: "2023 - Present",
-        description: "Leading the automation team, implementing Playwright across 5 key products, and reducing regression testing time by 60%."
+        role: "Automated Test Engineer",
+        company: "Arise by INFINITAS",
+        period: "Jan 2023 - Present",
+        description: "Leading automation development for 'Tungngern' platform. Designed robust test scripts for Web & API, optimized regression cycles, and managed defect tracking in an Agile environment.",
+        location: "Bangkok"
     },
     {
         role: "Software Test Engineer",
-        company: "Digital Bank Co.",
-        period: "2021 - 2023",
-        description: "Developed API testing frameworks using RestAssured and integrated CI/CD pipelines with Jenkins."
+        company: "ADI Group - ASIA",
+        period: "Sep 2020 - Dec 2022",
+        description: "Executed comprehensive test plans for Krungthai Bank & Krungthai NEXT mobile apps. Managed defect lifecycles and maintained web automation scripts.",
+        location: "Bangkok"
     },
     {
-        role: "Junior Developer / Tester",
-        company: "StartUp Hub",
-        period: "2019 - 2021",
-        description: "Started as a developer, transitioned to building internal testing tools and unit tests in Jest."
+        role: "Quality Assurance Engineer",
+        company: "aCommerce",
+        period: "Apr 2020 - Aug 2020",
+        description: "Focused on E-commerce solutions. Conducted manual & automated testing for backend microservices and performed functional regression testing.",
+        location: "Bangkok"
+    },
+    {
+        role: "Software Test Engineer",
+        company: "Aware Group",
+        period: "Jan 2018 - Mar 2020",
+        description: "Consultant for major clients (Minor Food, SCBLIFE, BBL). Translated business specs into test plans and executed functional validation.",
+        location: "Bangkok"
     }
 ]
 
@@ -41,10 +51,15 @@ export function Experience() {
                             {/* Content Card */}
                             <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
                                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                                    <h3 className="font-bold text-lg">{exp.role}</h3>
-                                    <span className="text-xs font-mono text-muted-foreground bg-black/30 px-2 py-1 rounded">{exp.period}</span>
+                                    <h3 className="font-bold text-lg text-white group-hover:text-primary transition-colors">{exp.role}</h3>
+                                    <div className="flex gap-2">
+                                        <span className="text-xs font-mono text-zinc-400 bg-white/5 px-2 py-1 rounded border border-white/5">{exp.location}</span>
+                                        <span className="text-xs font-mono text-primary bg-primary/10 px-2 py-1 rounded border border-primary/20">{exp.period}</span>
+                                    </div>
                                 </div>
-                                <div className="text-secondary font-medium text-sm mb-3">{exp.company}</div>
+                                <div className="text-secondary font-medium text-sm mb-3 flex items-center gap-2">
+                                    {exp.company}
+                                </div>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
                                     {exp.description}
                                 </p>

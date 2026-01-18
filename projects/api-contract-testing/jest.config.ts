@@ -6,6 +6,7 @@ const config: Config = {
     verbose: true,
     testTimeout: 30000,
     roots: ['<rootDir>/tests'],
+    setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
 
 export default config;

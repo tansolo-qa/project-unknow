@@ -1,8 +1,11 @@
 "use client"
 
+import { useState } from "react"
 import { Section } from "./ui/Section"
 import { Button } from "./ui/Button"
-import { Github, PlayCircle, BarChart3, ShieldCheck, Database, Target } from "lucide-react"
+import { Github, PlayCircle, BarChart3, ShieldCheck, Database, Target, Terminal } from "lucide-react"
+import { DemoModal } from "./ui/DemoModal"
+import { DEMO_SCENARIOS } from "@/data/demo-scenarios"
 
 const projects = [
     {
@@ -56,7 +59,7 @@ const projects = [
     {
         id: "test-data-manager",
         category: "Full Stack Proof",
-        title: "Test Data Management App",
+        title: "Test Data Manager",
         goal: "Prove 'Full Stack' capabilities by building a custom tool from scratch, demonstrating deep system understanding beyond testing.",
         description: "Custom internal tool built to generate and manage dynamic test data, solving the 'stale data' problem in staging environments.",
         tech: ["Next.js", "TailwindCSS", "MongoDB", "Node.js"],
@@ -73,6 +76,8 @@ const projects = [
 ]
 
 export function Projects() {
+    const [activeDemo, setActiveDemo] = useState<string | null>(null)
+
     return (
         <Section id="projects">
             <div className="text-center mb-16">
@@ -149,6 +154,7 @@ export function Projects() {
                                         <Github className="w-4 h-4" /> Source
                                     </Button>
 
+                                    {/* @ts-expect-error - demoUrl is strictly optional and not typed in array yet */}
                                     {project.demoUrl && (
                                         <Button
                                             size="sm"
@@ -159,12 +165,32 @@ export function Projects() {
                                         </Button>
                                     )}
 
+                                    {/* Test Demo Button */}
+                                    {(project.id === 'e2e-automation' || project.id === 'performance-load-testing') && (
+                                        <Button
+                                            size="sm"
+                                            variant="secondary"
+                                            className="w-full gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700"
+                                            onClick={() => setActiveDemo(project.id)}
+                                        >
+                                            <Terminal className="w-4 h-4 text-emerald-400" /> Run Test Demo
+                                        </Button>
+                                    )}
+
                                 </div>
                             </div>
                         </div>
                     )
                 })}
             </div>
+
+            <DemoModal
+                isOpen={!!activeDemo}
+                onClose={() => setActiveDemo(null)}
+                projectTitle={activeDemo ? projects.find(p => p.id === activeDemo)?.title || 'Terminal' : ''}
+                command={activeDemo === 'e2e-automation' ? DEMO_SCENARIOS.e2e.command : DEMO_SCENARIOS.load.command}
+                logs={activeDemo === 'e2e-automation' ? DEMO_SCENARIOS.e2e.logs : activeDemo === 'performance-load-testing' ? DEMO_SCENARIOS.load.logs : []}
+            />
         </Section>
     )
 }

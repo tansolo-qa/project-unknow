@@ -26,8 +26,9 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Run Playwright tests
-      run: npx playwright test
+    - name: Run System Regression (E2E + Portfolio)
+      working-directory: projects/e2e-automation
+      run: npx playwright test tests/e2e
 
     - name: Upload Report
       uses: actions/upload-artifact@v4

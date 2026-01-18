@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
     const commands: Record<string, { cmd: string, args: string[], cwd?: string }> = {
         e2e: {
             cmd: 'npx.cmd', // Windows specific: use npx.cmd
-            args: ['playwright', 'test', 'tests/tdm/generator.spec.ts', '--project=chromium'],
+            args: ['playwright', 'test', '--project=chromium'],
             cwd: 'projects/e2e-automation'
         },
         load: {

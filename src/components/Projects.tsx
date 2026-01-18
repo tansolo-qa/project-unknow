@@ -18,7 +18,8 @@ const projects = [
             "CI/CD Integration"
         ],
         metrics: "Reduced regression time by 60%",
-        icon: PlayCircle
+        icon: PlayCircle,
+        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/e2e-automation"
     },
     {
         id: "api-contract-testing",
@@ -33,7 +34,8 @@ const projects = [
             "Mock Server Integration"
         ],
         metrics: "Zero API breaking changes",
-        icon: ShieldCheck
+        icon: ShieldCheck,
+        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/api-contract-testing"
     },
     {
         id: "performance-load-testing",
@@ -48,7 +50,8 @@ const projects = [
             "Bottleneck Analysis Reports"
         ],
         metrics: "Optimized throughput by 40%",
-        icon: BarChart3
+        icon: BarChart3,
+        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/performance-load-testing"
     },
     {
         id: "test-data-manager",
@@ -63,7 +66,8 @@ const projects = [
             "Modern Responsive UI"
         ],
         metrics: "Boosted team efficiency by 3x",
-        icon: Database
+        icon: Database,
+        sourceUrl: "https://github.com/tansolo-qa/project-unknow/tree/master/projects/test-data-manager"
     }
 ]
 
@@ -134,7 +138,12 @@ export function Projects() {
                                 </div>
 
                                 <div className="flex items-center gap-4">
-                                    <Button size="sm" variant="outline" className="w-full gap-2 border-white/10 hover:bg-white/5">
+                                    <Button
+                                        size="sm"
+                                        variant="outline"
+                                        className="w-full gap-2 border-white/10 hover:bg-white/5"
+                                        onClick={() => window.open(project.sourceUrl, '_blank')}
+                                    >
                                         <Github className="w-4 h-4" /> Source
                                     </Button>
                                     <Button size="sm" variant="ghost" className="w-full gap-2 hover:bg-primary/10 hover:text-primary">

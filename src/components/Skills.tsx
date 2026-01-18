@@ -1,28 +1,28 @@
 "use client"
 
 import { Section } from "./ui/Section"
-import { CheckCircle2, Code2, Globe, Server, CloudCog } from "lucide-react"
+import { CheckCircle2, Code2, Globe, Server, CloudCog, Workflow, Database, Terminal } from "lucide-react"
 
 const skillCategories = [
     {
-        title: "Languages",
+        title: "Core & Languages",
         icon: Code2,
-        skills: ["JavaScript / TypeScript", "Python", "Java", "SQL"]
+        skills: ["TypeScript / JavaScript", "Python (Scripting)", "Node.js (Backend)", "SQL & NoSQL (Mongo)"]
     },
     {
-        title: "Web Testing",
+        title: "Testing Frameworks",
         icon: Globe,
-        skills: ["Playwright (Advanced)", "Visual Testing (Pixel-perfect)", "Axe-core (Accessibility)", "Cypress", "Page Object Model (POM)"]
+        skills: ["Playwright (Expert)", "Cypress / Selenium", "k6 (Load Testing)", "Appium (Mobile)"]
     },
     {
-        title: "API Testing",
-        icon: Server,
-        skills: ["Postman / Newman", "Supertest (JS)", "RestAssured (Java)", "Pact.io (Contract Testing)", "Security (Auth/Rate Limiting)"]
-    },
-    {
-        title: "DevOps & Tools",
+        title: "Test Ops & Cloud",
         icon: CloudCog,
-        skills: ["Docker & Kubernetes", "Jenkins / GitHub Actions", "k6 (Performance)", "Prometheus / Grafana", "Appium (Mobile)"]
+        skills: ["Docker & Kubernetes", "GitHub Actions (CI/CD)", "AWS / GCP Basics", "Grafana / Prometheus"]
+    },
+    {
+        title: "Strategy & Process",
+        icon: Workflow,
+        skills: ["Agile / Scrum", "TDD & BDD", "Contract Testing (Pact)", "Shift-Left Testing"]
     }
 ]
 

@@ -18,13 +18,14 @@ test.describe('Authentication Tests', () => {
         test(`Login flow for user: ${user.username}`, async () => {
             await loginPage.login(user.username, user.password);
 
-            if (user.id === 'valid_user') {
+            if (user.expectedUrl) {
                 // Successful login verification
-                await expect(inventoryPage.page).toHaveURL(/.*inventory.html/);
-            } else if (user.id === 'locked_out_user') {
+                // We use new RegExp to handle partial path matching
+                await expect(inventoryPage.page).toHaveURL(new RegExp(user.expectedUrl));
+            } else if (user.errorMessage) {
                 // Error handling verification
                 await expect(loginPage.errorMessage).toBeVisible();
-                await expect(loginPage.errorMessage).toContainText(user.errorMessage!);
+                await expect(loginPage.errorMessage).toContainText(user.errorMessage);
             }
         });
     }

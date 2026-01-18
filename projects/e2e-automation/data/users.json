@@ -10,5 +10,29 @@
         "username": "locked_out_user",
         "password": "secret_sauce",
         "errorMessage": "Epic sadface: Sorry, this user has been locked out."
+    },
+    {
+        "id": "problem_user",
+        "username": "problem_user",
+        "password": "secret_sauce",
+        "expectedUrl": "/inventory.html"
+    },
+    {
+        "id": "performance_glitch_user",
+        "username": "performance_glitch_user",
+        "password": "secret_sauce",
+        "expectedUrl": "/inventory.html"
+    },
+    {
+        "id": "error_user",
+        "username": "error_user",
+        "password": "secret_sauce",
+        "expectedUrl": "/inventory.html"
+    },
+    {
+        "id": "visual_user",
+        "username": "visual_user",
+        "password": "secret_sauce",
+        "expectedUrl": "/inventory.html"
     }
 ]

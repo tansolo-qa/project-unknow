@@ -10,12 +10,12 @@ const projects = [
         category: "The Core",
         title: "E2E Automation Framework",
         goal: "Build a complex, Enterprise-grade automation framework for E-commerce/Banking to master advanced testing scenarios.",
-        description: "A robust automation framework built with Playwright and TypeScript implementing Page Object Model and Data-Driven Testing.",
-        tech: ["Playwright", "TypeScript", "GitHub Actions", "Allure Report"],
+        description: "A robust automation framework built with Playwright, featuring Visual Regression, Accessibility (A11y), and Network Mocking capabilities.",
+        tech: ["Playwright", "TypeScript", "GitHub Actions", "Axe-core"],
         features: [
-            "Page Object Model Architecture",
-            "Auto-retry & Video on Failure",
-            "CI/CD Integration"
+            "Visual Regression & Accessibility Tests",
+            "Network Mocking & Fault Injection",
+            "Page Object Model Architecture"
         ],
         metrics: "Reduced regression time by 60%",
         icon: PlayCircle,

@@ -12,7 +12,7 @@ const skillCategories = [
     {
         title: "Web Testing",
         icon: Globe,
-        skills: ["Playwright (Advanced)", "Cypress", "Selenium WebDriver", "Page Object Model (POM)", "Cross-Browser Testing"]
+        skills: ["Playwright (Advanced)", "Visual Testing (Pixel-perfect)", "Axe-core (Accessibility)", "Cypress", "Page Object Model (POM)"]
     },
     {
         title: "API Testing",

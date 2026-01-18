@@ -5,6 +5,7 @@
   "scripts": {
     "test": "playwright test",
     "test:ui": "playwright test --ui",
+    "test:a11y": "playwright test tests/a11y",
     "report": "allure generate allure-results -o allure-report --clean && allure open allure-report"
   },
   "keywords": [],
@@ -12,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
     "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.9",
     "allure-playwright": "^3.4.5",

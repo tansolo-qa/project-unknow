@@ -57,6 +57,26 @@ When UI changes are intentional, update the baseline images:
 npm test -- tests/visual --update-snapshots
 ```
 
+## Accessibility Testing ♿
+
+Automated WCAG 2.1 compliance checks using `@axe-core/playwright`.
+
+### Run Accessibility Tests
+```bash
+npm run test:a11y
+```
+
+### Coverage
+- Scans `wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa` rules
+- Checks Login Page and Inventory Page
+- Reports violations in console and test output
+
+### How It Works
+1. Navigates to the page
+2. Injects axe-core engine
+3. Analyzes DOM for violations
+4. Fails test if any violations found
+
 ### How It Works
 1. Captures screenshots of critical pages (Login, Inventory, Product Card)
 2. Compares against baseline images stored in Git

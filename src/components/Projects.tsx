@@ -29,7 +29,7 @@ const projects = [
         tech: ["Supertest", "Pact.io", "Jest", "Docker"],
         features: [
             "Consumer-Driven Contract Testing",
-            "Auth & Rate Limit Security Checks",
+            "Auth Validation & Security Checks",
             "Mock Server Integration"
         ],
         metrics: "Zero API breaking changes",
@@ -41,7 +41,7 @@ const projects = [
         title: "High-Scale Load Testing",
         goal: "Showcase scalability awareness by simulating high concurrency (1k+ users) and identifying system bottlenecks.",
         description: "Performance analysis platform simulating 1,000+ concurrent users with real-time monitoring to ensure system stability.",
-        tech: ["k6", "Grafana", "InfluxDB", "Go"],
+        tech: ["k6 (JS)", "Grafana", "InfluxDB", "Docker Compose"],
         features: [
             "Real-time Performance Dashboard",
             "Spike & Soak Testing scenarios",
@@ -59,7 +59,7 @@ const projects = [
         tech: ["Next.js", "TailwindCSS", "MongoDB", "Node.js"],
         features: [
             "CRUD for Test Scenarios",
-            "API Mocking Interface",
+            "RESTful Test Data API",
             "Modern Responsive UI"
         ],
         metrics: "Boosted team efficiency by 3x",

@@ -33,6 +33,15 @@ This repository contains four specialized projects, each targeting a critical ar
 
 ---
 
+## 🚀 Technical Highlights (Phase 2)
+Recently enhanced across the portfolio:
+*   **Multi-User Contexts (Project A)**: Implemented Playwright `browser.newContext()` to simulate concurrent users and verify session isolation (e.g., Cart Isolation).
+*   **Schema Validation (Project B)**: Integrated `jest-json-schema` to enforce strict API contract structure beyond simple status codes.
+*   **Strict SLAs (Project C)**: Tuned performance thresholds to specific latencies (p95 < 300ms) and zero tolerance for errors used in high-scale envs.
+*   **Bulk Data Gen (Project D)**: Added `Faker.js` integration to generate thousands of realistic user records instantly via API & UI.
+
+---
+
 ## 🛠️ Getting Started
 
 ### 1. Run the Portfolio Website

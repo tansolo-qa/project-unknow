@@ -54,28 +54,32 @@ test.describe('Test Data Manager (Project D)', () => {
     test('UI: Should manually create a data record', async ({ page }) => {
         await page.goto(TDM_URL);
 
+        const uniqueName = `Manual Test Scenario ${Date.now()}`;
+
         // 1. Fill Form using Accessible Locators
-        await page.getByLabel('Scenario Name').fill('Manual Test Scenario');
+        await page.getByLabel('Scenario Name').fill(uniqueName);
         await page.getByLabel('Tags (comma separated)').fill('manual, e2e-test');
 
         // Note: Textarea JSON payload usually has default value, we verify we can edit it
         await page.getByLabel('JSON Payload').fill('{ "test_key": "manual_value" }');
 
-        // 2. Submit
-        await page.getByRole('button', { name: 'Save Data' }).click();
-
-        // 3. Verify Response & UI Update
-        // Wait for POST /api/data
-        await page.waitForResponse(response =>
-            response.url().includes('/api/data') &&
-            response.request().method() === 'POST' &&
-            response.status() === 201
+        // 2. Submit & Wait for Refresh
+        // We need to wait for both the POST (Creation) and the subsequent GET (Fetch List)
+        const postResponse = page.waitForResponse(res =>
+            res.url().includes('/api/data') && res.request().method() === 'POST'
+        );
+        const getResponse = page.waitForResponse(res =>
+            res.url().includes('/api/data') && res.request().method() === 'GET'
         );
 
+        await page.getByRole('button', { name: 'Save Data' }).click();
+
+        await postResponse;
+        await getResponse; // Ensure the list reload has finished
+
         // Verify item appears in list
-        // Use first() because it might appear multiple times if tests run repeatedly without clear
-        await expect(page.getByText('Manual Test Scenario').first()).toBeVisible();
-        await expect(page.getByText('#manual').first()).toBeVisible();
+        // We'll wait for the specific text to appear
+        await expect(page.getByText(uniqueName)).toBeVisible({ timeout: 10000 });
         await expect(page.getByText('#manual').first()).toBeVisible();
     });
 

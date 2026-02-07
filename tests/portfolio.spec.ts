@@ -46,7 +46,7 @@ test.describe('Portfolio Website E2E', () => {
         await expect(page.getByRole('heading', { name: 'E2E Automation Framework' })).toBeVisible();
         await expect(page.getByRole('heading', { name: 'API & Contract Testing' })).toBeVisible();
         await expect(page.getByRole('heading', { name: 'High-Scale Load Testing' })).toBeVisible();
-        await expect(page.getByRole('heading', { name: 'Test Data Management App' })).toBeVisible();
+        await expect(page.getByRole('heading', { name: 'Test Data Manager' })).toBeVisible();
     });
 
     test('should display tech stack tags', async ({ page }) => {

@@ -31,7 +31,7 @@ export default function Home() {
 
     const fetchData = async () => {
         setLoading(true);
-        const res = await fetch('/api/data');
+        const res = await fetch('/api/data', { cache: 'no-store' });
         const json = await res.json();
         if (json.success) {
             setData(json.data);
